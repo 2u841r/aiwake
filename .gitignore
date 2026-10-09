@@ -1,0 +1,9 @@
+node_modules/
+.wrangler/
+.cloudflare/
+.dev.vars
+dist/
+*.log
+.DS_Store
+package-lock.json
+npm-shrinkwrap.json

@@ -1,0 +1,30 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "aiwake",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-10-09",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true,
+    "traces": {
+      "enabled": true
+    }
+  },
+  // Asia/Dhaka = UTC+6 (no DST). Cron is always UTC.
+  // AI_TIME=0200am → 5-hour window (hourly ticks at start minute):
+  //   0200am → 02:00–06:00 Dhaka = :00 at 20–00 UTC
+  "triggers": {
+    "crons": [
+      "0 0,20,21,22,23 * * *"
+    ]
+  },
+
+  "vars": {
+    "AI_TIME": "0200am",
+    "AI_TIMEZONE": "Asia/Dhaka",
+    "AI_WINDOW_HOURS": "5",
+    "ZAI_MODEL": "glm-5.3-flash"
+  }
+  // Required for Z.AI calls:
+  //   pnpm exec wrangler secret put ZAI_API_KEY
+}
