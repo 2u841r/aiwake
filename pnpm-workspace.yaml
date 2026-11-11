@@ -7,5 +7,9 @@ allowBuilds:
 
 minimumReleaseAgeExclude:
   - "@cloudflare/workers-types@5.20261009.1"
-  - miniflare@5.20261006.1-alpha
+  - miniflare@5.20261006.1-alpha || 5.20261110.1-beta
   - wrangler@4.149.0
+  - "@cloudflare/build-output-utils@0.9.13"
+  - "@cloudflare/config@0.32.0"
+  - "@cloudflare/runtime-types@0.1.26"
+  - cf@1.0.0-beta.30
